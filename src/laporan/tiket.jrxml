@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="400" pageHeight="400" columnWidth="360" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3469b205-1400-46a2-af5b-8276c78df30c">
+	<property name="ireport.zoom" value="1.2100000000000017"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="nopol" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     detail_parkir.`id` AS detail_parkir_id,
+     detail_parkir.`nopol` AS detail_parkir_nopol,
+     detail_parkir.`jenis_kendaraan` AS detail_parkir_jenis_kendaraan,
+     detail_parkir.`waktu_masuk` AS detail_parkir_waktu_masuk,
+     detail_parkir.`waktu_keluar` AS detail_parkir_waktu_keluar,
+     detail_parkir.`lama_parkir` AS detail_parkir_lama_parkir,
+     detail_parkir.`harga_parkir` AS detail_parkir_harga_parkir
+FROM
+     `detail_parkir` detail_parkir
+WHERE nopol LIKE '%$P!{nopol}%']]>
+	</queryString>
+	<field name="detail_parkir_id" class="java.lang.Integer"/>
+	<field name="detail_parkir_nopol" class="java.lang.String"/>
+	<field name="detail_parkir_jenis_kendaraan" class="java.lang.String"/>
+	<field name="detail_parkir_waktu_masuk" class="java.sql.Timestamp"/>
+	<field name="detail_parkir_waktu_keluar" class="java.sql.Timestamp"/>
+	<field name="detail_parkir_lama_parkir" class="java.lang.Integer"/>
+	<field name="detail_parkir_harga_parkir" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="67" splitType="Stretch">
+			<staticText>
+				<reportElement x="-18" y="10" width="397" height="32" uuid="71f4148d-3048-4024-993a-2fbd036f4ed4"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[PARKIR MALL BANDUNG INDAH PLAZA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="42" width="358" height="20" uuid="430c11bc-437a-400e-b227-ba9b4ffcf9da"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Jl. Merdeka No.56, Citarum, Bandung Wetan, Kota Bandung, Jawa Barat 40115]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<line>
+				<reportElement x="1" y="13" width="358" height="1" uuid="5b7d126e-d82a-4639-90a4-bf63a325a842"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="129" splitType="Stretch">
+			<staticText>
+				<reportElement x="56" y="21" width="117" height="20" uuid="d48bd57a-ba56-4153-8387-d153767178ef"/>
+				<textElement textAlignment="Left"/>
+				<text><![CDATA[NOPOL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="56" y="40" width="100" height="20" uuid="4f5241bd-cd38-42de-80e6-b7e0412068ac"/>
+				<textElement textAlignment="Left"/>
+				<text><![CDATA[JENIS KENDARAAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="57" y="60" width="116" height="20" uuid="2d3fe5e7-7c1a-48db-90af-20202ed40e31"/>
+				<textElement textAlignment="Left"/>
+				<text><![CDATA[WAKTU MASUK]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="200" y="0" width="117" height="20" uuid="58194585-4180-4e76-9391-da23f896acfb"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$F{detail_parkir_id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="20" width="117" height="20" uuid="0989f0f1-8980-4e74-88fe-77f1f4e1c79c"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$F{detail_parkir_nopol}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="56" y="1" width="83" height="20" uuid="28e2d0ef-5a8a-4bf0-95a3-0afe0f06fe74"/>
+				<textElement textAlignment="Left"/>
+				<text><![CDATA[NOMOR PARKIR]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="201" y="41" width="158" height="20" uuid="d6d64d5e-b7a9-4070-80f1-3f287979ecbe"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$F{detail_parkir_jenis_kendaraan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="201" y="61" width="178" height="20" uuid="c3017267-87f5-4c86-bedd-bf309ee541d3"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$F{detail_parkir_waktu_masuk}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="65" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="84" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
